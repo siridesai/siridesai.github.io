@@ -1,45 +1,132 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Siri Desai — Portfolio</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <title>Siri Mutalik Desai — Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of projects by Siri Mutalik Desai — modern, minimal, and focused on impactful STEM tools and engineering." />
+  <link rel="icon" href="/favicon.ico" />
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 20px;line-height:1.6}
-    header{margin-bottom:24px}
-    h1{margin:0 0 8px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-    .card{border:1px solid #ddd;border-radius:8px;padding:16px}
-    .card h3{margin:0 0 8px}
-    footer{margin-top:40px;color:#666}
+    :root{
+      --bg:#0c0f12;
+      --panel:#111419;
+      --text:#e7e9ee;
+      --muted:#a9b0bb;
+      --line:#1b2028;
+      --brand:#79b8ff;
+      --radius:14px;
+      --shadow: 0 8px 24px rgba(0,0,0,.28);
+      --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Ubuntu, Cantarell, Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+    *{box-sizing:border-box}
+    html, body{margin:0; padding:0; background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.65}
+    a{color:var(--brand); text-decoration:none}
+    a:hover{opacity:.9}
+    .wrap{max-width:960px; margin:0 auto; padding:32px 18px 64px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin:6px 0 22px}
+    .id{display:flex; align-items:center; gap:14px}
+    .avatar{width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, #96c7ff, #8aa6ff)}
+    .who{display:flex; flex-direction:column; gap:4px}
+    .who h1{font-size:20px; font-weight:600; margin:0}
+    .who p{margin:0; color:var(--muted); font-size:14px}
+    nav{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 12px; border:1px solid var(--line); background:transparent; color:var(--text); border-radius:10px; font-size:14px}
+    .btn:hover{transform:translateY(-1px)}
+    .btn--brand{background:linear-gradient(180deg, #1b2a38, #161e29); border-color:#223042}
+    .panel{background:linear-gradient(180deg, rgba(24,28,36,.7), rgba(24,28,36,.45)); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .hero{padding:22px; margin:28px 0 18px}
+    .hero h2{margin:0 0 8px; font-size:22px; font-weight:600}
+    .hero p{margin:0; color:var(--muted)}
+    .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+    .tag{font-family:var(--mono); font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:#0e1218; color:#cfe2ff}
+    .section{display:flex; align-items:center; justify-content:space-between; margin:26px 0 12px}
+    .section h3{margin:0; font-size:16px; font-weight:600}
+    .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px}
+    .card{padding:16px; border:1px solid var(--line); border-radius:12px; background:linear-gradient(180deg, rgba(22,26,33,.8), rgba(22,26,33,.5)); transition:transform .12s ease}
+    .card:hover{transform:translateY(-2px)}
+    .card h4{margin:0 0 6px; font-size:16px}
+    .card p{margin:0; color:var(--muted)}
+    .meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .pill{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:#0e1218; color:#bcd7ff}
+    .links{display:flex; gap:8px; margin-top:12px}
+    .linkbtn{flex:1; text-align:center; padding:10px; border-radius:10px; border:1px solid var(--line); color:var(--text)}
+    .linkbtn--primary{background:linear-gradient(180deg, #1b2a38, #161e29); border-color:#223042}
+    .all{margin:10px 0 0}
+    footer{margin:40px 0 0; color:var(--muted); font-size:14px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap}
+    /* Responsive */
+    @media (max-width:560px){
+      .who h1{font-size:18px}
+      .hero h2{font-size:20px}
+      nav{width:100%}
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Siri Mutalik Desai</h1>
-    <p>Portfolio of projects and research</p>
-  </header>
+  <div class="wrap">
+    <!-- Header -->
+    <header aria-label="Site header">
+      <div class="id">
+        <div class="avatar" aria-hidden="true"></div>
+        <div class="who">
+          <h1>Siri Mutalik Desai</h1>
+          <p>Engineering modern, multilingual tools for STEM learning.</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="https://github.com/siridesai" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn--brand" href="#projects">Projects</a>
+        <a class="btn" href="mailto:siridesai@outlook.com">Contact</a>
+      </nav>
+    </header>
 
-  <section>
-    <h2>Featured Projects</h2>
-    <div class="grid">
-      <article class="card">
-        <h3><a href="https://siridesai.github.io/PolyglotStemBuddy">PolyglotStemBuddy</a></h3>
-        <p>Multilingual STEM learning app.</p>
-        <p><a href="https://github.com/siridesai/PolyglotStemBuddy">Repository</a></p>
-      </article>
-      <!-- Add more projects here -->
+    <!-- Intro -->
+    <section class="panel hero" aria-label="Intro">
+      <h2>Learning without language barriers</h2>
+      <p>I build small edTech projects that turn “huh?” into “oh!”—in any language.</p>
+      <div class="tags" aria-label="Skills">
+        <span class="tag">TypeScript</span>
+        <span class="tag">React</span>
+        <span class="tag">Python</span>
+        <span class="tag">NLP</span>
+        <span class="tag">Accessibility</span>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <div class="section">
+      <h3 id="projects">Featured projects</h3>
+      <a class="btn" href="https://github.com/siridesai?tab=repositories" target="_blank" rel="noopener">All repositories</a>
     </div>
-  </section>
 
-  <section>
-    <h2>About</h2>
-    <p>Short bio and focus areas.</p>
-  </section>
+    <section class="grid" aria-label="Project grid">
+      <!-- Project: PolyglotStemBuddy -->
+      <article class="card" aria-labelledby="p1">
+        <h4 id="p1"><a href="https://siridesai.github.io/PolyglotStemBuddy">PolyglotStemBuddy</a></h4>
+        <p>Multilingual STEM learning app focused on accessibility and clear pedagogy.</p>
+        <div class="meta">
+          <span class="pill">TS/React</span>
+          <span class="pill">i18n</span>
+        </div>
+        <div class="links">
+          <a class="linkbtn linkbtn--primary" href="https://siridesai.github.io/PolyglotStemBuddy">Live</a>
+          <a class="linkbtn" href="https://github.com/siridesai/PolyglotStemBuddy">Code</a>
+        </div>
+      </article>
 
-  <footer>
-    <small>© <span id="year"></span> Siri Desai</small>
-  </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
-</body>
-</html>
+      <!-- Duplicate this block for more projects -->
+      <article class="card" aria-labelledby="p2">
+        <h4 id="p2"><a href="#">Project Name</a></h4>
+        <p>One-line description highlighting the “why” and outcome.</p>
+        <div class="meta">
+          <span class="pill">Python</span>
+          <span class="pill">FastAPI</span>
+        </div>
+        <div class="links">
+          <a class="linkbtn linkbtn--primary" href="#">Live</a>
+          <a class="linkbtn" href="#">Code</a>
+        </div>
+      </article>
+
+      <article class="card" aria-labelledby="p3">
+        <
